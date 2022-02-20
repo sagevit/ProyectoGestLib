@@ -1,0 +1,22 @@
+body {
+    font-family: 'Sarabun', sans-serif;
+}
+
+main {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 100vh;
+    height: -webkit-fill-available;
+    max-height: 100vh;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+ol {
+    position: absolute;
+    z-index: 100 !important;
+}
+
+li {
+    padding: 0.1em !important;
+}

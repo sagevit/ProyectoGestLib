@@ -1,0 +1,52 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="GestLib:war exploded">
+    <output-path>$PROJECT_DIR$/target/GestLib</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>GestLib</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="GestLib" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: jakarta.mvc:jakarta.mvc-api:2.0.0" />
+          <element id="library" level="project" name="Maven: jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:2.0.0" />
+          <element id="library" level="project" name="Maven: jakarta.el:jakarta.el-api:4.0.0" />
+          <element id="library" level="project" name="Maven: jakarta.xml.bind:jakarta.xml.bind-api:3.0.1" />
+          <element id="library" level="project" name="Maven: com.sun.activation:jakarta.activation:1.2.2" />
+          <element id="library" level="project" name="Maven: org.eclipse.krazo:krazo-core:2.0.1" />
+          <element id="library" level="project" name="Maven: org.eclipse.krazo:krazo-resteasy:2.0.1" />
+          <element id="library" level="project" name="Maven: org.apache.deltaspike.core:deltaspike-core-api:1.9.4" />
+          <element id="library" level="project" name="Maven: org.apache.deltaspike.core:deltaspike-core-impl:1.9.4" />
+          <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-data-module-api:1.9.4" />
+          <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-partial-bean-module-api:1.9.4" />
+          <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-jpa-module-api:1.9.4" />
+          <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-data-module-impl:1.9.4" />
+          <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-partial-bean-module-impl:1.9.4" />
+          <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-proxy-module-api:1.9.4" />
+          <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-proxy-module-impl-asm:1.9.4" />
+          <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-jpa-module-impl:1.9.4" />
+          <element id="library" level="project" name="Maven: org.webjars:bootstrap:5.1.3" />
+          <element id="library" level="project" name="Maven: org.webjars:popper.js:2.9.3" />
+          <element id="library" level="project" name="Maven: org.webjars.npm:bootstrap-icons:1.7.2" />
+          <element id="library" level="project" name="Maven: org.webjars.npm:jquery:3.6.0" />
+          <element id="library" level="project" name="Maven: org.webjars:webjars-locator:0.42" />
+          <element id="library" level="project" name="Maven: org.webjars:webjars-locator-core:0.48" />
+          <element id="library" level="project" name="Maven: io.github.classgraph:classgraph:4.8.115" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.12.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.12.1" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.8.1" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/GestLib/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="GestLib/web/Web" />
+    </root>
+  </artifact>
+</component>

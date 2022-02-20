@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>es.jpahibernate</groupId>
+    <artifactId>GestLib</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>GestLib</name>
+    <packaging>war</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>11</maven.compiler.release>
+
+        <!-- Official Maven Plugins -->
+        <maven.compiler.version>3.8.1</maven.compiler.version>
+        <maven.war.version>3.3.2</maven.war.version>
+        <maven-dependency-plugin.version>3.2.0</maven-dependency-plugin.version>
+
+        <!-- Jakarta EE API 9.1.0 adds Java 11 support-->
+        <jakarta-ee.version>9.1.0</jakarta-ee.version>
+        <jakarta.servlet.jsp.jstl-api>2.0.0</jakarta.servlet.jsp.jstl-api>
+
+        <!-- Wildfly server -->
+        <wildfly.version>23.0.2.Final</wildfly.version>
+
+        <!-- MVC -->
+        <jakarta.mvc.version>2.0.0</jakarta.mvc.version>
+
+        <!-- Krazo -->
+        <krazo.version>2.0.1</krazo.version>
+
+        <!-- Lombok -->
+        <lombok.version>1.18.22</lombok.version>
+
+        <!-- Wildfly server -->
+        <wildfly.version>23.0.2.Final</wildfly.version>
+        <wildfly.console.username>admin</wildfly.console.username>
+        <wildfly.console.password>admin</wildfly.console.password>
+
+        <!-- DeltaSpike Data -->
+        <deltaspike.version>1.9.4</deltaspike.version>
+
+        <!-- WebJars -->
+        <org.webjars.bootstrap>5.1.3</org.webjars.bootstrap>
+        <org.webjars.npm.bootstrap-icons>1.7.2</org.webjars.npm.bootstrap-icons>
+        <org.webjars.npm.jquery>3.6.0</org.webjars.npm.jquery>
+        <org.webjars.webjars-locator>0.42</org.webjars.webjars-locator>
+
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>jakarta.platform</groupId>
+                <artifactId>jakarta.jakartaee-bom</artifactId>
+                <version>${jakarta-ee.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+
+            <dependency>
+                <groupId>org.wildfly.bom</groupId>
+                <artifactId>wildfly-jakartaee8-with-tools</artifactId>
+                <version>${wildfly.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.deltaspike.distribution</groupId>
+                <artifactId>distributions-bom</artifactId>
+                <version>${deltaspike.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>${jakarta-ee.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.mvc</groupId>
+            <artifactId>jakarta.mvc-api</artifactId>
+            <version>${jakarta.mvc.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.servlet.jsp.jstl</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+            <version>${jakarta.servlet.jsp.jstl-api}</version>
+        </dependency>
+
+        <!-- Eclipse Krazo -->
+        <dependency>
+            <groupId>org.eclipse.krazo</groupId>
+            <artifactId>krazo-core</artifactId>
+            <version>${krazo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.krazo</groupId>
+            <artifactId>krazo-resteasy</artifactId>
+            <version>${krazo.version}</version>
+        </dependency>
+
+        <!-- Jackson (procesador json)-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Hibernate -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-jpamodelgen</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- DeltaSpike Core + Data -->
+        <dependency>
+            <groupId>org.apache.deltaspike.core</groupId>
+            <artifactId>deltaspike-core-api</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.deltaspike.core</groupId>
+            <artifactId>deltaspike-core-impl</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.deltaspike.modules</groupId>
+            <artifactId>deltaspike-data-module-api</artifactId>
+            <version>${deltaspike.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.deltaspike.modules</groupId>
+            <artifactId>deltaspike-data-module-impl</artifactId>
+            <version>${deltaspike.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- SL4J -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Webjars -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>${org.webjars.bootstrap}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>bootstrap-icons</artifactId>
+            <version>${org.webjars.npm.bootstrap-icons}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>jquery</artifactId>
+            <version>${org.webjars.npm.jquery}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>webjars-locator</artifactId>
+            <version>${org.webjars.webjars-locator}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${maven.war.version}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.version}</version>
+
+                <!-- JPAmodelgen
+                <configuration>
+                    <annotationProcessorPaths>
+                        <annotationProcessorPath>
+                            <groupId>org.hibernate</groupId>
+                            <artifactId>hibernate-jpamodelgen</artifactId>
+                            <version>provided</version>
+                        </annotationProcessorPath>
+                    </annotationProcessorPaths>
+                </configuration> -->
+
+            </plugin>
+
+            <!-- necesario para ejecutar desde mvn wrapper -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.1.0</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>
