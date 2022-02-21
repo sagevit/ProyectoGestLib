@@ -2,18 +2,13 @@ package es.jpahibernate.gestlib.controller;
 
 import es.jpahibernate.gestlib.model.Usuario;
 import es.jpahibernate.gestlib.service.UsuarioService;
-import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
-import jakarta.mvc.Controller;
-import jakarta.mvc.security.CsrfProtected;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import lombok.extern.slf4j.Slf4j;
-
-import java.util.Collections;
 
 @Slf4j
 @Path("/api/usuarios")
@@ -74,8 +69,10 @@ public class UsuarioRestController {
         Usuario usuario = usuarioService.localizarUsuario(id);
 
         if (usuario != null) {
-            usuarioService.eliminar(usuario);
-            return Response.ok().build();
+            if (usuarioService.eliminar(usuario)) {
+                return Response.ok().build();
+            }
+            return Response.status(Response.Status.FORBIDDEN).build();
         }
 
         return Response.status(Response.Status.NOT_FOUND).build();

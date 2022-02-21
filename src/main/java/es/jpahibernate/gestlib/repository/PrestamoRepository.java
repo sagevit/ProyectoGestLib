@@ -19,6 +19,9 @@ public interface PrestamoRepository extends EntityRepository<Prestamo, Long> {
 
     List<Prestamo> findByFechaDevolucionAfter(Date fecha);
 
+    @Query("select count(p) from Prestamo p where p.usuario = ?1 and p.estado = ?2")
+    Long countByUsuarioPorEstado(Usuario usuario, Estado estado);
+
     @Query("select distinct(p.usuario) from Prestamo p where p.estado = ?1")
     List<Usuario> localizaUsuariosDePrestamosPorEstado(Estado estado);
 

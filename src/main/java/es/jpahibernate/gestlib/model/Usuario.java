@@ -1,5 +1,6 @@
 package es.jpahibernate.gestlib.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.mvc.binding.MvcBinding;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -58,7 +59,8 @@ public class Usuario {
     @Column(columnDefinition = "TEXT")
     private String direccion;
 
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.LAZY)
+    @JsonIgnore
+    @OneToMany(mappedBy = "usuario", orphanRemoval = true)
     private Set<Prestamo> prestamos = new LinkedHashSet<>();
 
     public String getNombreCompleto() {

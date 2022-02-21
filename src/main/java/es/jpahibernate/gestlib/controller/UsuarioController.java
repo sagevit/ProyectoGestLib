@@ -76,7 +76,7 @@ public class UsuarioController {
     @ValidateOnExecution(type = ExecutableType.NONE)
     public String eliminar(@BeanParam Usuario usuario) {
         usuarioService.eliminar(usuarioService.localizarUsuario(usuario.getId()));
-        this.models.put("usuarios", usuarioService.listadoUsuarios());
+        //this.models.put("usuarios", usuarioService.listadoUsuarios());
         return "redirect:usuarios";
     }
 
