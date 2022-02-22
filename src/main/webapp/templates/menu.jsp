@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <div class="col-auto">
-    <div class="container border rounded-3 shadow">
+    <div class="container border rounded-3 shadow bg-light mt-5 ms-2">
         <a href="${pageContext.request.contextPath}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
             <i class="bi bi-book"></i>
             <span class="fs-3 ms-4">GestLib</span>
