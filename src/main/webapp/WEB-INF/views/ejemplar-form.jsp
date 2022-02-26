@@ -97,6 +97,32 @@
                             </div>
                         </div>
 
+                        <table class="table caption-top">
+                            <caption>Ejemplares:</caption>
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Título de libro</th>
+                                <th scope="col">Año de edición</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tablaEjemplares">
+                            <c:forEach var="ejemplar" varStatus="status" items="${biblioteca.ejemplares}">
+                                <tr>
+                                    <td>
+                                            ${ejemplar.id}
+                                    </td>
+                                    <td>
+                                            ${ejemplar.edicion.libro.titulo}
+                                    </td>
+                                    <td>
+                                            ${ejemplar.edicion.anio}
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
+
                     </fieldset>
 
                     <hr>
