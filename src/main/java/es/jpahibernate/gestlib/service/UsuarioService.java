@@ -1,7 +1,6 @@
 package es.jpahibernate.gestlib.service;
 
 import es.jpahibernate.gestlib.management.Estado;
-import es.jpahibernate.gestlib.model.Prestamo;
 import es.jpahibernate.gestlib.model.Usuario;
 import es.jpahibernate.gestlib.repository.PrestamoRepository;
 import es.jpahibernate.gestlib.repository.UsuarioRepository;

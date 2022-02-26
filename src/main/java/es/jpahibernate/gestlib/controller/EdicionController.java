@@ -64,6 +64,7 @@ public class EdicionController {
     public String actualizar(@Valid @BeanParam Edicion edicion, @Valid @BeanParam EdicionForm edicionForm) {
         if (bindingResult.isFailed()) {
             this.getErrores();
+            edicion.setLibro(libroService.localizarLibro(edicionForm.getLibroId()));
             this.models.put("edicion", edicion);
             this.models.put("editoriales", editorialService.listadoEditoriales());
             return "edicion-form";
